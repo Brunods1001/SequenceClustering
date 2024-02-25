@@ -19,12 +19,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./ui 
 
       - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           npm run build
+        working-directory: ./ui 
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
